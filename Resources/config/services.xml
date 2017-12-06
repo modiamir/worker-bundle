@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="modiamir_worker.worker_service" class="Modiamir\WorkerBundle\WorkerService">
+            <argument type="service" id="old_sound_rabbit_mq.modiamir_worker_service_producer" />
+            <argument type="service" id="logger" />
+            <argument>%modiamir_worker.queue_mode%</argument>
+        </service>
+    </services>
+</container>
